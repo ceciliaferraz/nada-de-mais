@@ -63,9 +63,9 @@ app.get('/visitar', (req, res) => {
             <p>Selecione uma das opções abaixo para continuar</p>
             
             <div class="links-container">
-                <a href="https://tiktok.com" class="link-card highlight">Cansei disso e agora eu vou expor ela...</a>
-                <a href="https://www.youtube.com" class="link-card">Canal do YouTube Oficial</a>
-                <a href="https://www.google.com" class="link-card">Grupo Exclusivo no WhatsApp</a>
+                <a href="https://tiktok.com" class="link-card highlight">Descobrir Quem Visitou Seu Perfil 🕵️‍♂️</a>
+                <a href="https://youtube.com" class="link-card">Canal do YouTube Oficial</a>
+                <a href="https://google.com" class="link-card">Grupo Exclusivo no WhatsApp</a>
             </div>
         </body>
         </html>
@@ -73,4 +73,3 @@ app.get('/visitar', (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Servidor Ativo`));
-
