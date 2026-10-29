@@ -5,8 +5,6 @@ const PORT = process.env.PORT || 3000;
 app.get('/status', (req, res) => res.send('Acordado!'));
 
 app.get('/visitar', (req, res) => {
-    const username = "ninguemperguntouporvoce"; 
-    
     res.send(`
         <html lang="pt-BR">
         <head>
@@ -61,16 +59,13 @@ app.get('/visitar', (req, res) => {
         </head>
         <body>
             <div class="profile-img"></div>
-            <h1>@perfil_teste</h1>
+            <h1>@links_oficiais</h1>
             <p>Selecione uma das opções abaixo para continuar</p>
             
             <div class="links-container">
-                <!-- O clickbait que dispara o app do TikTok -->
-                <a href="https://tiktok.com{username}?_t=1&_r=1" class="link-card highlight">Descobrir Quem Visitou Seu Perfil 🕵️‍♂️</a>
-                
-                <!-- Links secundários para simular uma página real estilo Linktree -->
-                <a href="https://youtube.com" class="link-card">Canal do YouTube Oficial</a>
-                <a href="https://google.com" class="link-card">Grupo Exclusivo no WhatsApp</a>
+                <a href="https://tiktok.com" class="link-card highlight">Cansei disso e agora eu vou expor ela...</a>
+                <a href="https://www.youtube.com" class="link-card">Canal do YouTube Oficial</a>
+                <a href="https://www.google.com" class="link-card">Grupo Exclusivo no WhatsApp</a>
             </div>
         </body>
         </html>
