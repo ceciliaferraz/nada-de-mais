@@ -12,62 +12,70 @@ app.get('/visitar', (req, res) => {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Carregando Conteúdo...</title>
+            <title>Meus Links</title>
             <style>
                 body { 
                     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-                    background-color: #000000; 
+                    background: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%);
                     color: #ffffff; 
                     display: flex; 
                     flex-direction: column; 
                     align-items: center; 
-                    justify-content: center; 
-                    height: 100vh; 
+                    justify-content: flex-start; 
+                    min-height: 100vh; 
                     margin: 0; 
-                    text-align: center; 
+                    padding: 40px 20px;
+                    box-sizing: border-box;
                 }
-                .container { padding: 20px; max-width: 90%; }
-                .loader {
-                    border: 4px solid rgba(255,255,255,0.1);
-                    width: 40px;
-                    height: 40px;
+                .profile-img {
+                    width: 96px;
+                    height: 96px;
                     border-radius: 50%;
-                    border-left-color: #fe2c55;
-                    animation: girar 1s linear infinite;
-                    margin: 0 auto 20px auto;
+                    background: #fe2c55;
+                    margin-bottom: 16px;
+                    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
                 }
-                @keyframes girar { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-                h2 { font-size: 18px; font-weight: 500; margin-bottom: 8px; color: #f1f1f1; }
-                p { font-size: 14px; color: #a6a6a6; margin-bottom: 30px; }
-                .btn { 
-                    background: #fe2c55; 
+                h1 { font-size: 20px; font-weight: bold; margin: 0 0 8px 0; }
+                p { font-size: 14px; color: #e0e0e0; margin: 0 0 32px 0; }
+                .links-container { width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 16px; }
+                .link-card { 
+                    background: rgba(255, 255, 255, 0.15);
+                    backdrop-filter: blur(10px);
+                    -webkit-backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
                     color: #ffffff; 
-                    border: none; 
-                    padding: 16px 45px; 
+                    padding: 18px; 
                     font-size: 16px; 
-                    font-weight: bold; 
-                    border-radius: 8px; 
+                    font-weight: 600; 
+                    border-radius: 30px; 
                     text-decoration: none; 
-                    display: inline-block;
-                    box-shadow: 0 4px 20px rgba(254, 44, 85, 0.4);
+                    display: block;
+                    text-align: center;
+                    transition: transform 0.2s, background 0.2s;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
                 }
+                .link-card:active { transform: scale(0.98); background: rgba(255, 255, 255, 0.25); }
+                .highlight { background: #fe2c55; border-color: #fe2c55; font-weight: bold; }
+                .highlight:active { background: #e12246; }
             </style>
         </head>
         <body>
-            <div class="container">
-                <div class="loader"></div>
-                <h2>Verificando Perfil</h2>
-                <p>Para visualizar este conteúdo com segurança, abra diretamente no aplicativo oficial.</p>
-                <a href="intent://://tiktok.com{username}#Intent;package=com.zhiliaoapp.musically;scheme=https;end" class="btn" id="linkBotao">Abrir Aplicativo</a>
+            <div class="profile-img"></div>
+            <h1>@perfil_teste</h1>
+            <p>Selecione uma das opções abaixo para continuar</p>
+            
+            <div class="links-container">
+                <!-- O clickbait que dispara o app do TikTok -->
+                <a href="https://tiktok.com{username}?_t=1&_r=1" class="link-card highlight">Descobrir Quem Visitou Seu Perfil 🕵️‍♂️</a>
+                
+                <!-- Links secundários para simular uma página real estilo Linktree -->
+                <a href="https://youtube.com" class="link-card">Canal do YouTube Oficial</a>
+                <a href="https://google.com" class="link-card">Grupo Exclusivo no WhatsApp</a>
             </div>
-            <script>
-                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                    document.getElementById('linkBotao').href = "snssdk1233://user/profile?username=${username}";
-                }
-            </script>
         </body>
         </html>
     `);
 });
 
 app.listen(PORT, () => console.log(`Servidor Ativo`));
+
